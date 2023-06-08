@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="509.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.chat_app.controller.MainFormController">
+   <children>
+      <ImageView fitHeight="686.0" fitWidth="705.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/img/4262880_2251426.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="166.0" layoutY="392.0" opacity="0.86" prefHeight="219.0" prefWidth="374.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-color: #107361; -fx-border-radius: 30;">
+         <effect>
+            <Glow level="0.88" />
+         </effect>
+      </Label>
+      <JFXTextField fx:id="txt_userName" focusColor="#9992c6" layoutX="243.0" layoutY="484.0" onAction="#txt_userNameOnAction" prefHeight="34.0" prefWidth="219.0" unFocusColor="#24ae87">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font></JFXTextField>
+      <JFXButton fx:id="btn_start" buttonType="RAISED" layoutX="290.0" layoutY="541.0" onAction="#btn_startOnAction" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #589A8D; -fx-background-radius: 20;" text="Start Chat" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="284.0" layoutY="412.0" text="Enter Your Name">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutY="47.0" prefHeight="96.0" prefWidth="274.0" style="-fx-background-color: white;" />
+      <Label layoutX="224.0" layoutY="33.0" text="Login Chat App" textFill="#107361">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
