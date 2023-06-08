@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 public class MainFormController {
     public TextField txt_userName;
     public JFXButton btn_start;
+    private double x,y;
 
     public static ArrayList<String> nameList = new ArrayList<>();
 
@@ -38,14 +40,21 @@ public class MainFormController {
                 e.printStackTrace();
             }
 
-
-//        AppController appController = fxmlLoader.getController();
-//        appController.setClientUserName(txt_userName.getText());
             Stage stage = new Stage();
             stage.setTitle("Group Chat");
             stage.setScene(new Scene(load));
             stage.centerOnScreen();
             //stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.UNDECORATED);
+            load.setOnMousePressed(event -> {
+                x=event.getSceneX();
+                y=event.getSceneY();
+            });
+
+            load.setOnMouseDragged(event -> {
+                stage.setX(event.getScreenX() - x);
+                stage.setY(event.getScreenY() - y);
+            });
             stage.show();
             txt_userName.clear();
         }

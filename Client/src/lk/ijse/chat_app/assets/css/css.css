@@ -7,17 +7,6 @@
 
 }
 
-.login_tf{
-    -fx-text-fill: linear-gradient(to right,#DC1D9D,#F03D7E,#F24774,#F34E70,#F9665F,#FC795B,#FF8C5F);
-    -fx-border-color: #DC1D9D;
-    -fx-border-radius: 20px;
-    -fx-background-radius: 20px;
-}
-
-.label{
-    -fx-text-fill: linear-gradient(to right,#DC1D9D,#F03D7E,#F24774,#F34E70,#F9665F,#FC795B,#FF8C5F);
-}
-
 .button_close{
     -fx-text-fill: #ffff;
     -fx-cursor: hand;
@@ -37,3 +26,4 @@
     -fx-background-color: #477FBA;
     -fx-text-fill: #ffff;
 }
+

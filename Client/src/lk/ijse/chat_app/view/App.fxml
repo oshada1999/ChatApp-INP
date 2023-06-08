@@ -40,22 +40,22 @@
          </children>
       </AnchorPane>
       <AnchorPane fx:id="emoji" layoutX="10.0" layoutY="382.0" prefHeight="200.0" prefWidth="325.0" />
-      <Pane fx:id="header_pane" prefHeight="25.0" prefWidth="435.0" style="-fx-background-color: #031D1A;">
+      <Pane fx:id="header_pane" prefHeight="41.0" prefWidth="435.0" style="-fx-background-color: #031D1A;">
          <children>
-            <Label fx:id="lblUsername" layoutX="17.0" layoutY="3.0" prefHeight="17.0" prefWidth="252.0" text="Group Chat" textFill="WHITE">
+            <Label fx:id="lblUsername" layoutX="17.0" layoutY="7.0" prefHeight="17.0" prefWidth="139.0" text="chathura" textFill="WHITE">
                <font>
-                  <Font name="Calibri Bold" size="13.0" />
+                  <Font name="Calibri Bold" size="22.0" />
                </font>
             </Label>
-            <JFXButton fx:id="btn_wClose" layoutX="399.0" layoutY="-2.0" onAction="#btn_wCloseOnAction" styleClass="button_close" stylesheets="@../assets/css/css.css" text="X" />
-            <JFXButton fx:id="btn_Minimized" layoutX="375.0" onAction="#btn_MinimizedOnAction" styleClass="button_minimize" stylesheets="@../assets/css/css.css" text="-">
+            <JFXButton fx:id="btn_wClose" layoutX="399.0" layoutY="-2.0" onAction="#btn_wCloseOnAction" prefHeight="41.0" prefWidth="38.0" styleClass="button_close" stylesheets="@../assets/css/css.css" text="X" />
+            <JFXButton fx:id="btn_Minimized" layoutX="367.0" onAction="#btn_MinimizedOnAction" prefHeight="41.0" prefWidth="29.0" styleClass="button_minimize" stylesheets="@../assets/css/css.css" text="-">
                <font>
                   <Font size="12.0" />
                </font>
             </JFXButton>
          </children>
       </Pane>
-      <Pane fx:id="pane_imageSent" layoutX="1.0" layoutY="26.0" prefHeight="655.0" prefWidth="435.0" style="-fx-background-color: #36BFB1;">
+      <Pane fx:id="pane_imageSent" layoutX="1.0" layoutY="41.0" prefHeight="640.0" prefWidth="435.0" style="-fx-background-color: #36BFB1;">
          <children>
             <JFXButton fx:id="btn_Close" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="3.0" layoutY="15.0" onAction="#btn_CloseONAction" styleClass="btn_back" stylesheets="@../assets/css/btn.css" text=" " textAlignment="CENTER" textFill="WHITE">
                <cursor>

@@ -68,9 +68,6 @@ public class Client {
 
     public void sentMessage(String messageToSent) {
         try {
-//            bufferedWriter.write(messageToSent);
-//            bufferedWriter.newLine();
-//            bufferedWriter.flush();
             dataOutputStream.writeUTF(messageToSent);
             dataOutputStream.flush();
         } catch (IOException e) {
@@ -86,22 +83,10 @@ public class Client {
             public void run() {
                 while (remoteSocket.isConnected()){
                     try {
-//                        String  receiveMessage= bufferedReader.readLine();
+
                         String receiveMessage=dataInputStream.readUTF();
 
                         if (receiveMessage.equals("iMg*->")){
-//                            BufferedInputStream bufferedInputStream=new BufferedInputStream(remoteSocket.getInputStream());
-////                            java.awt.Image image = ImageIO.read(bufferedInputStream);
-//                            BufferedImage bufferedImage = ImageIO.read(bufferedInputStream);
-////                            ImageIcon imageIcon = new ImageIcon(read);
-//
-//                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//                            ImageIO.write(bufferedImage, "jpg", byteArrayOutputStream);
-//
-//                            byte[] array = byteArrayOutputStream.toByteArray();
-//                            Image image = new Image(new ByteArrayInputStream(array));
-
-//                            AppController.receiveImage(image,vbox_messages);
                             System.out.println("received image to client");
                             String username=dataInputStream.readUTF();
 
@@ -131,57 +116,8 @@ public class Client {
         }).start();
     }
 
-//    public void sentImage(Image file) {
-//
-//        try {
-//            FileInputStream fileInputStream=new FileInputStream(file.getAbsolutePath());
-//            DataOutputStream dataOutputStream=new DataOutputStream(remoteSocket.getOutputStream());
-//
-//            byte[] sentImage=new byte[(int) file.length()];
-//            fileInputStream.read(sentImage);
-//
-//            sentMessage("iMg*->");
-//
-//            dataOutputStream.writeInt(sentImage.length);
-//            dataOutputStream.write(sentImage);
-//            dataOutputStream.flush();
-//
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-////        try {
-////
-////            BufferedImage image = ImageIO.read(file);
-////            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-////            ImageIO.write(image, "jpg", byteArrayOutputStream);
-////
-////            OutputStream outputStream = remoteSocket.getOutputStream();
-////
-////            byte[] size = ByteBuffer.allocate(4).putInt(byteArrayOutputStream.size()).array();
-////
-////            sentMessage("iMg*->");
-////
-////            outputStream.write(size);
-////            outputStream.write(byteArrayOutputStream.toByteArray());
-////            outputStream.flush();
-////
-////        }catch (IOException e) {
-////            throw new RuntimeException(e);
-////        }
-//
-//
-//    }
-
     public void sentImage(File file,String clientUserName) {
         try {
-//            BufferedOutputStream bufferedOutputStream=new BufferedOutputStream(remoteSocket.getOutputStream());
-//
-//            BufferedImage bufferedImage=new BufferedImage(
-//                    (int) imageToSent.getWidth(), (int) imageToSent.getHeight(),BufferedImage.TYPE_INT_RGB);
-//            ImageIO.write(bufferedImage,"jpg",bufferedOutputStream);
 
             BufferedImage bufferedImage = ImageIO.read(file);
 

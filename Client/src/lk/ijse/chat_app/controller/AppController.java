@@ -1,5 +1,7 @@
 package lk.ijse.chat_app.controller;
 
+import animatefx.animation.ZoomIn;
+import animatefx.animation.ZoomOut;
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.application.Platform;
@@ -77,7 +79,7 @@ public class AppController {
                 sp_main.setVvalue((Double)newValue);
             }
         });
-        lblUsername.setText("Group Chat - "+clientUserName);
+        lblUsername.setText(clientUserName);
 
         client.receiveMessage(vbox_message);
 
@@ -93,7 +95,6 @@ public class AppController {
     public void btn_sentOnAction(MouseEvent actionEvent) {
         String messageToSent=txt_message.getText();
 
-        /** ensure to text field not empty*/
         if(!messageToSent.isEmpty()){
 
             HBox hBox=new HBox();
@@ -104,7 +105,7 @@ public class AppController {
             TextFlow textFlow=new TextFlow(text);
 
             textFlow.setStyle("-fx-color: rgb(239,242,255);"+
-                    "-fx-background-color: rgb(15,125,242);" +
+                    "-fx-background-color: #138094;" +
                     "-fx-background-radius: 20px;");
 
             textFlow.setPadding(new Insets(5,10,5,10));
@@ -136,8 +137,6 @@ public class AppController {
         }
 
         textFlow.setPadding(new Insets(5,10,5,10));
-        //text.setFill(Color.color(0.934,0.945,0.996));
-
         hBox.getChildren().add(textFlow);
 
         Platform.runLater(new Runnable() {
@@ -188,14 +187,12 @@ public class AppController {
     public void btn_sent_VOnAction(MouseEvent actionEvent) {
         imgViewer.setImage(null);
         pane_imageSent.setVisible(true);
-        //new ZoomIn(pane_imageSent).play();
         btn_Cancel.setVisible(false);
         btn_sentImage.setDisable(true);
     }
 
     public void btn_CloseONAction(ActionEvent actionEvent) {
-       // new ZoomOut(pane_imageSent).play();
-//        pane_imageSent.setVisible(false);
+        pane_imageSent.setVisible(false);
     }
     public void btnEmojiOnAction(MouseEvent mouseEvent) {
         if (isUsed) {
@@ -253,18 +250,13 @@ public class AppController {
 
             HBox imgBox=new HBox();
             imgBox.setAlignment(Pos.CENTER);
-//            imgBox.setStyle("-fx-background-color: rgb(15,125,242);" +
-//                    "-fx-background-radius: 20px;");
-//            imgBox.setPadding(new Insets(10,10,10,10));
             imgBox.getChildren().add(imageView);
 
             hBox.getChildren().add(imgBox);
             vbox_message.getChildren().add(hBox);
-            //new ZoomOut(pane_imageSent).play();
             pane_imageSent.setVisible(false);
 
             client.sentImage(this.file,clientUserName+" : ");
-//            client.sentImage(imageToSent);
         }
     }
 

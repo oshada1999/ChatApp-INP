@@ -44,26 +44,12 @@ public class ClientManager implements Runnable{
         while (localSocket.isConnected()){
             try {
                 /**Blocking operation*/
-//                receivedMessage=bufferedReader.readLine();
                 receivedMessage=dataInputStream.readUTF();
 
                 System.out.println("server : "+receivedMessage);
 
                 if (receivedMessage.equals("iMg*->")){
                     System.out.println("image");
-//                    InputStream inputStream = localSocket.getInputStream();
-//                    DataInputStream dataInputStream = new DataInputStream(localSocket.getInputStream());
-//                    int length=dataInputStream.readInt();
-//
-//                    if(length>0){
-//                        byte[]content=new byte[length];
-//                        dataInputStream.readFully(content,0,length);
-//                    }
-                    //---------------
-//                    BufferedInputStream bufferedInputStream=new BufferedInputStream(localSocket.getInputStream());
-//                    BufferedImage bufferedImage= ImageIO.read(bufferedInputStream);
-//                    broadCastImage(bufferedImage);
-
                     String username=dataInputStream.readUTF();
 
                     byte[] sizeAr = new byte[256];
@@ -100,9 +86,6 @@ public class ClientManager implements Runnable{
                     BufferedOutputStream bufferedOutputStream=
                             new BufferedOutputStream(client.localSocket.getOutputStream());
 
-//                    client.bufferedWriter.write("iMg*->");
-//                    client.bufferedWriter.newLine();
-//                    client.bufferedWriter.flush();
                     client.dataOutputStream.writeUTF("iMg*->");
                     client.dataOutputStream.writeUTF(userName);
 
@@ -110,7 +93,6 @@ public class ClientManager implements Runnable{
                     client.dataOutputStream.write(imageContent);
                     client.dataOutputStream.flush();
 
-//                    ImageIO.write(bufferedImage,"jpg",bufferedOutputStream);
                 }
                 System.out.println("img sent to client");
             }catch (IOException e){
@@ -125,9 +107,7 @@ public class ClientManager implements Runnable{
         for (ClientManager client : clientManagers) {
             try{
                 if(!this.clientUserName.equals(client.clientUserName)){
-//                    client.bufferedWriter.write(sentMessage);
-//                    client.bufferedWriter.newLine();
-//                    client.bufferedWriter.flush();
+
                     client.dataOutputStream.writeUTF(sentMessage);
                     client.dataOutputStream.flush();
                 }
